@@ -24,6 +24,8 @@ def scrape_twitter(accounts, interval):
         for tweet in tweets:
             for word in tweet.text():
                 if istricker(word):
+                    mentions[word] = mentions.get(word, 0) + 1  
+    driver.quit()
     #print (len(mentions))
     for ticker_symbol, count in mentions.items():
         print(f"The stock ticker '{ticker_symbol}' was mentioned '{count}' times "
